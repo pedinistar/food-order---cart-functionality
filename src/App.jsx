@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
 
 function App() {
   const products = [
@@ -74,6 +74,13 @@ function App() {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  let [totalBill, setTotalBill] = useState(0);
+  if (state.cart.length > 0) {
+    totalBill = state.cart.reduce((total, currentItem) => {
+      return total + currentItem.price;
+    }, 0);
+  }
+
   return (
     <div>
       {/* Products */}
@@ -102,6 +109,7 @@ function App() {
           <h3>{item.name}</h3>
           <p>{item.price}</p>
           <p>Quantity: {item.quantity}</p>
+          <p>Total: {item.price * item.quantity}</p>
           <button
             onClick={() =>
               dispatch({
@@ -124,6 +132,8 @@ function App() {
           </button>
         </div>
       ))}
+
+      {totalBill === 0 ? null : <h4>Total: ${totalBill}</h4>}
     </div>
   );
 }
