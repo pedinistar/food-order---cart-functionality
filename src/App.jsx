@@ -82,12 +82,9 @@ function App() {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
-  let [totalBill, setTotalBill] = useState(0);
-  if (state.cart.length > 0) {
-    totalBill = state.cart.reduce((total, currentItem) => {
-      return total + currentItem.price;
-    }, 0);
-  }
+  const totalBill = state.cart.reduce((total, currentItem) => {
+    return total + currentItem.price * currentItem.quantity;
+  }, 0);
 
   return (
     <div>
