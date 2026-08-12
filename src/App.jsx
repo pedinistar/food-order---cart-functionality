@@ -70,6 +70,14 @@ function App() {
         };
       }
     }
+
+    // Clear the cart
+    if (action.type === "CLEAR_CART") {
+      return {
+        ...state,
+        cart: [],
+      };
+    }
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -134,6 +142,18 @@ function App() {
       ))}
 
       {totalBill === 0 ? null : <h4>Total: ${totalBill}</h4>}
+
+      {state.cart.length !== 0 && (
+        <button
+          onClick={() =>
+            dispatch({
+              type: "CLEAR_CART",
+            })
+          }
+        >
+          Clear Cart
+        </button>
+      )}
     </div>
   );
 }
