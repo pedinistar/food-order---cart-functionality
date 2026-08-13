@@ -1,16 +1,50 @@
-# React + Vite
+# React Food Order Cart
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A small React project built to practice cart functionality and state management with `useReducer`.
 
-Currently, two official plugins are available:
+## What this project does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Displays a list of food products
+- Adds products to the cart
+- If a product is already in the cart, its quantity increases
+- Increases/decreases quantity from the cart
+- Removes an item when its quantity reaches 0
+- Calculates the total price from the cart
+- Clears the entire cart
 
-## React Compiler
+## React concepts practiced
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- `useReducer`
+- `dispatch` and action types
+- Reducer state updates
+- Array methods: `find()`, `map()`, `filter()`, `reduce()`
+- Conditional rendering
+- Derived values from state
+- Immutable state updates
+- Rendering lists with `map()`
 
-## Expanding the Oxlint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- React
+- JavaScript
+- Vite
+
+## Why I built it
+
+I wanted to understand how `useReducer` is used in a realistic feature rather than learning it only through a counter example.
+
+The main goal was to practice thinking about state changes as actions:
+
+- `ADD_TO_CART`
+- `REMOVE_FROM_CART`
+- `CLEAR_CART`
+
+## Live Demo
+
+Add your deployed Vercel link here.
+
+## What I learned
+
+The biggest takeaway was understanding that the reducer is responsible for changing the state, while values such as the cart total can be calculated from the current state instead of being stored separately.
+
+This project is intentionally focused on functionality rather than UI design.
